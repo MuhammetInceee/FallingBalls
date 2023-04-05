@@ -31,7 +31,7 @@ namespace FallingBalls.Controllers
 
         private void Update()
         {
-            _deltaRotation = Quaternion.Euler(Vector3.forward * (100 * Time.deltaTime * -_swerveInputSystem.MoveFactorX));
+            _deltaRotation = Quaternion.Euler(Vector3.forward * (_mazeController.RotateSpeed * Time.deltaTime * -_swerveInputSystem.MoveFactorX));
             
             _rb.MoveRotation(_rb.rotation * _deltaRotation);
         }
