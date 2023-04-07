@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590b209d659bdd94daa6ca92de77fe9b, type: 3}
   m_Name: MazeController
   m_EditorClassIdentifier: 
-  rotateSpeed: 1
+  rotateSpeed: 0.5
