@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class BallManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class BallManager : MonoBehaviour
         GetReferences();
         InitVariables();
         SetColor();
+        CreateAnim();
     }
 
 
@@ -44,6 +46,6 @@ public class BallManager : MonoBehaviour
 
     private void CreateAnim()
     {
-        
+        transform.DOScale(Vector3.one * 1.5f, 0.4f);
     }
 }
