@@ -15,7 +15,7 @@ namespace FallingBalls.Managers
         void Start()
         {
             _activeLevelIndex = PlayerPrefs.GetInt("ActiveLevelIndex", 0);
-            levelText.text = "Lv " + _activeLevelIndex + 1;
+            levelText.text = $"Lv {_activeLevelIndex + 1}";
             
             for (int i = 0; i < levelsPrefabs.Length; i++)
             {
@@ -40,8 +40,8 @@ namespace FallingBalls.Managers
             Destroy(GameObject.FindGameObjectWithTag("Level"));
 
             Instantiate(levelsPrefabs[_activeLevelIndex], Vector3.zero, Quaternion.identity);
-            
-            levelText.text = "Lv " + _activeLevelIndex + 1;
+
+            levelText.text = $"Lv {_activeLevelIndex + 1}";
             UISignals.RefreshScoreText.Invoke(-1);
         }
 

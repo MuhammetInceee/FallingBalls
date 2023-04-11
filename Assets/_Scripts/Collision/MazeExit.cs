@@ -36,7 +36,7 @@ namespace FallingBalls.Physics
             {
                 _tempBallCount--;
                 
-                if (_tempBallCount == 1)
+                if (_tempBallCount <= 1)
                 {
                     _mazeController.canPlay = false;
                     UISignals.LevelSuccessfulSignal.Invoke();
