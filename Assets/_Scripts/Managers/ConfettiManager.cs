@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using FallingBalls.Signals;
 using UnityEngine;
@@ -7,6 +8,11 @@ namespace FallingBalls.Managers
     public class ConfettiManager : MonoBehaviour
     {
         [SerializeField] private ParticleSystem confetti;
+
+        private void Awake()
+        {
+            Application.targetFrameRate = 60;
+        }
 
         private void OnEnable()
         {

@@ -12,7 +12,7 @@ namespace FallingBalls.Physics
     {
         private MazeControllerSO _mazeController;
         private int _tempBallCount;
-
+        
         private void Start()
         {
             ReadDataResource();
@@ -28,15 +28,12 @@ namespace FallingBalls.Physics
         private void InitVariables()
         {
             _tempBallCount = _mazeController.ActiveBalls;
-            print(_tempBallCount);
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out BallManager ballManager))
             {
-                print(_tempBallCount);
-                
                 _tempBallCount--;
                 
                 if (_tempBallCount <= 1)

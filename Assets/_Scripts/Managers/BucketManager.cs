@@ -17,7 +17,7 @@ namespace FallingBalls.Managers
             if (other.gameObject.TryGetComponent(out BallManager ball))
             {
                 HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
-                
+                ball.GetComponent<AudioSource>().Play();
                 _scoreTextSpawnPoint = ball.transform;
 
                 GameObject scoreTextInstance =
