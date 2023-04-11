@@ -5,30 +5,33 @@ using FallingBalls.Controllers;
 using TMPro;
 using UnityEngine;
 
-public class BallSpawnController : MonoBehaviour
+namespace FallingBalls.Controllers
 {
-    private MazeControllerSO _mazeController;
-    
-    [SerializeField] private GameObject ballPrefab;
-
-
-    void Start()
+    public class BallSpawnController : MonoBehaviour
     {
-        ResourceDataRead();
-        BallPawn();
-    }
+        private MazeControllerSO _mazeController;
 
-    private void ResourceDataRead()
-    {
-        _mazeController = Resources.Load<MazeControllerSO>("Maze/MazeController");
-    }
+        [SerializeField] private GameObject ballPrefab;
 
-    async void BallPawn()
-    {
-        for (int i = 0; i < _mazeController.ActiveBalls; i++)
+
+        void Start()
         {
-            GameObject ball = Instantiate(ballPrefab, transform);
-            await Task.Delay(50);
+            ResourceDataRead();
+            BallPawn();
+        }
+
+        private void ResourceDataRead()
+        {
+            _mazeController = Resources.Load<MazeControllerSO>("Maze/MazeController");
+        }
+
+        public async void BallPawn()
+        {
+            for (int i = 0; i < _mazeController.ActiveBalls; i++)
+            {
+                GameObject ball = Instantiate(ballPrefab, transform);
+                await Task.Delay(50);
+            }
         }
     }
 }

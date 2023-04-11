@@ -11,6 +11,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Controller/Spawn/BallSpawnController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/BallManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/BucketManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/ConfettiManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/ScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Managers/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Signals/UISignals.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -88,7 +91,7 @@
       <workItem from="1680861722115" duration="5523000" />
       <workItem from="1681137535277" duration="1900000" />
       <workItem from="1681141518165" duration="3000" />
-      <workItem from="1681218595705" duration="2563000" />
+      <workItem from="1681218595705" duration="6497000" />
     </task>
     <servers />
   </component>

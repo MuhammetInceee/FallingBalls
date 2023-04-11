@@ -8,5 +8,6 @@ namespace FallingBalls.Signals
     public static class UISignals
     {
         public static Action LevelSuccessfulSignal;
+        public static Action<float> RefreshScoreText;
     }
 }

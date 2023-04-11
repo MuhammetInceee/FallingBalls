@@ -71,7 +71,8 @@ MonoBehaviour:
     Settings'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ba25a5dfc50dba4ea09b127bc534b4a, type: 2}
-  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5ba25a5dfc50dba4ea09b127bc534b4a, type: 2}
+  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5ba25a5dfc50dba4ea09b127bc534b4a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -404,18 +405,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: NextLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2644124106047707638}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -428,18 +417,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2644124107186329270}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2644124107571176893}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -451,6 +428,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: FallingBalls.Controllers.BallSpawnController, Assembly-CSharp
+        m_MethodName: BallPawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &2644124106047707638
 GameObject:
@@ -724,7 +725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2644124106307858699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1145,7 +1146,7 @@ GameObject:
   - component: {fileID: 2644124106519701995}
   - component: {fileID: 2644124106519701996}
   m_Layer: 5
-  m_Name: Money-Text (TMP)
+  m_Name: Score-Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,7 +1203,8 @@ MonoBehaviour:
   m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f1d94580d5f54e4a9b923dc4523aa94, type: 2}
-  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5f1d94580d5f54e4a9b923dc4523aa94, type: 2}
+  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5f1d94580d5f54e4a9b923dc4523aa94,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1621,7 +1623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2644124107102126050}
   m_Layer: 5
-  m_Name: Money-Rect
+  m_Name: Score-Rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1645,7 +1647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200.0538, y: -177}
+  m_AnchoredPosition: {x: -127, y: -105.1}
   m_SizeDelta: {x: 295.5575, y: 92.158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2644124107186329270
@@ -1663,7 +1665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2644124107186329269
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1779,7 +1781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -165}
+  m_AnchoredPosition: {x: 0, y: -102.6}
   m_SizeDelta: {x: 302.4955, y: 105.3226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2644124107571176893
@@ -1891,7 +1893,8 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5f1d94580d5f54e4a9b923dc4523aa94, type: 2}
-  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5f1d94580d5f54e4a9b923dc4523aa94, type: 2}
+  m_sharedMaterial: {fileID: 7374927986402738804, guid: 5f1d94580d5f54e4a9b923dc4523aa94,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1993,7 +1996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 67.17474, y: -205.81818}
+  m_AnchoredPosition: {x: 106.1, y: -62.4}
   m_SizeDelta: {x: 90.850494, y: 90.850464}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8279250891295952721

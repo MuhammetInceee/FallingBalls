@@ -3,49 +3,47 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class BallManager : MonoBehaviour
+namespace FallingBalls.Managers
 {
-    [SerializeField] private float maxSpeed = 10f;
-    private Rigidbody _rb;
-    private Renderer _renderer;
-
-    void Awake()
+    public class BallManager : MonoBehaviour
     {
-        GetReferences();
-        InitVariables();
-        SetColor();
-        CreateAnim();
-    }
+        [SerializeField] private float maxSpeed = 10f;
+        private Rigidbody _rb;
+        private Renderer _renderer;
 
-
-    void FixedUpdate() 
-    {
-        if (_rb.velocity.magnitude > maxSpeed)
+        void Awake()
         {
-            _rb.velocity = _rb.velocity.normalized * maxSpeed;
+            GetReferences();
+            SetColor();
+            CreateAnim();
         }
-    }
-    
-    private void InitVariables()
-    {
-        
-    }
 
-    private void GetReferences()
-    {
-        _rb = GetComponent<Rigidbody>();
-        _renderer = GetComponent<Renderer>();
-    }
 
-    private void SetColor()
-    {
-        Color randomColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value, 1f);
-        
-        _renderer.material.color = randomColor;
-    }
+        void FixedUpdate()
+        {
+            if (_rb.velocity.magnitude > maxSpeed)
+            {
+                _rb.velocity = _rb.velocity.normalized * maxSpeed;
+            }
+        }
 
-    private void CreateAnim()
-    {
-        transform.DOScale(Vector3.one * 1.5f, 0.4f);
+        private void GetReferences()
+        {
+            _rb = GetComponent<Rigidbody>();
+            _renderer = GetComponent<Renderer>();
+        }
+
+        private void SetColor()
+        {
+            Color randomColor = new Color(Random.value, Random.value, Random.value,
+                1f);
+
+            _renderer.material.color = randomColor;
+        }
+
+        private void CreateAnim()
+        {
+            transform.DOScale(Vector3.one * 1.5f, 0.4f);
+        }
     }
 }

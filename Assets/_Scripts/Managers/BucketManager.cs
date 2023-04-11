@@ -1,32 +1,36 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using FallingBalls.Signals;
 using UnityEngine;
 
-public class BucketManager : MonoBehaviour
+namespace FallingBalls.Managers
 {
-    public GameObject scoreTextPrefab;
-    public float scoreTextSpeed = 5f; 
-    public float scoreTextDuration = 2f; 
-
-    private Transform scoreTextSpawnPoint;
-    void OnCollisionEnter(Collision other)
+    public class BucketManager : MonoBehaviour
     {
-        if (other.gameObject.TryGetComponent(out BallManager ball))
+        [SerializeField] private GameObject scoreTextPrefab;
+        [SerializeField] private float scoreTextSpeed = 5f;
+        [SerializeField] private float scoreTextDuration = 2f;
+
+        private Transform _scoreTextSpawnPoint;
+
+        void OnTriggerEnter(Collider other)
         {
-            scoreTextSpawnPoint = ball.transform;
-            
-            GameObject scoreTextInstance =
-                Instantiate(scoreTextPrefab, scoreTextSpawnPoint.position + (Vector3.up * 2), Quaternion.identity);
-            
-            Vector3 direction = scoreTextInstance.transform.position - Camera.main.transform.position;
-            scoreTextInstance.transform.rotation = Quaternion.LookRotation(direction);
+            if (other.gameObject.TryGetComponent(out BallManager ball))
+            {
+                _scoreTextSpawnPoint = ball.transform;
+
+                GameObject scoreTextInstance =
+                    Instantiate(scoreTextPrefab, _scoreTextSpawnPoint.position + Vector3.up, Quaternion.identity);
+
+                Vector3 direction = scoreTextInstance.transform.position - Camera.main!.transform.position;
+                scoreTextInstance.transform.rotation = Quaternion.LookRotation(direction);
 
 
-            Rigidbody scoreTextRigidbody = scoreTextInstance.GetComponent<Rigidbody>();
-            scoreTextRigidbody.velocity = new Vector3(0f, scoreTextSpeed, 0f);
-            Destroy(scoreTextInstance, scoreTextDuration);
-            Destroy(ball, scoreTextDuration);
+                Rigidbody scoreTextRigidbody = scoreTextInstance.GetComponent<Rigidbody>();
+                scoreTextRigidbody.velocity = new Vector3(0f, scoreTextSpeed, 0f);
+                Destroy(scoreTextInstance, scoreTextDuration);
+                Destroy(ball, scoreTextDuration);
+                
+                UISignals.RefreshScoreText.Invoke(5);
+            }
         }
     }
 }

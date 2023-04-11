@@ -3,44 +3,47 @@ using FallingBalls.Signals;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class UIManager : MonoBehaviour
+namespace FallingBalls.Managers
 {
-    [SerializeField] private GameObject finishEndPanel;
-    [SerializeField] private GameObject inGameEndPanel;
-    
-    private void OnEnable()
+    public class UIManager : MonoBehaviour
     {
-        SubscribeEvent();
-    }
+        [SerializeField] private GameObject finishEndPanel;
+        [SerializeField] private GameObject inGameEndPanel;
 
-    private void OnDisable()
-    {
-        UnSubscribeEvent();
-    }
+        private void OnEnable()
+        {
+            SubscribeEvent();
+        }
 
-    #region SubscribeEvents
+        private void OnDisable()
+        {
+            UnSubscribeEvent();
+        }
 
-    private void SubscribeEvent()
-    {
-        UISignals.LevelSuccessfulSignal += LevelEnd;
-    }
+        #region SubscribeEvents
 
-    private void UnSubscribeEvent()
-    {
-        UISignals.LevelSuccessfulSignal -= LevelEnd;
-    }
-    
-    #endregion
+        private void SubscribeEvent()
+        {
+            UISignals.LevelSuccessfulSignal += LevelEnd;
+        }
 
-    private void LevelEnd()
-    {
-        StartCoroutine(LevelEndVisualizer());
-    }
+        private void UnSubscribeEvent()
+        {
+            UISignals.LevelSuccessfulSignal -= LevelEnd;
+        }
 
-    private IEnumerator LevelEndVisualizer()
-    {
-        yield return new WaitForSeconds(1.5f);
-        inGameEndPanel.SetActive(false);
-        finishEndPanel.SetActive(true);
+        #endregion
+
+        private void LevelEnd()
+        {
+            StartCoroutine(LevelEndVisualizer());
+        }
+
+        private IEnumerator LevelEndVisualizer()
+        {
+            yield return new WaitForSeconds(1.5f);
+            inGameEndPanel.SetActive(false);
+            finishEndPanel.SetActive(true);
+        }
     }
 }
