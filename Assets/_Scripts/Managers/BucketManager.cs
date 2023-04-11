@@ -1,4 +1,5 @@
 using FallingBalls.Signals;
+using Lofelt.NiceVibrations;
 using UnityEngine;
 
 namespace FallingBalls.Managers
@@ -15,6 +16,8 @@ namespace FallingBalls.Managers
         {
             if (other.gameObject.TryGetComponent(out BallManager ball))
             {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
+                
                 _scoreTextSpawnPoint = ball.transform;
 
                 GameObject scoreTextInstance =
