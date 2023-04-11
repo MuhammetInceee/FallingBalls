@@ -9,5 +9,10 @@ namespace FallingBalls.Controllers
     {
         public float rotateSpeed;
         public float RotateSpeed => rotateSpeed;
+
+        [SerializeField] private int activeBalls;
+        public int ActiveBalls => activeBalls;
+
+        public bool canPlay;
     }
 }

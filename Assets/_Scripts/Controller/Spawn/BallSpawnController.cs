@@ -7,12 +7,25 @@ using UnityEngine;
 
 public class BallSpawnController : MonoBehaviour
 {
-    public GameObject ballPrefab;
+    private MazeControllerSO _mazeController;
     
+    [SerializeField] private GameObject ballPrefab;
 
-    async void Start()
+
+    void Start()
     {
-        for (int i = 0; i < 10; i++)
+        ResourceDataRead();
+        BallPawn();
+    }
+
+    private void ResourceDataRead()
+    {
+        _mazeController = Resources.Load<MazeControllerSO>("Maze/MazeController");
+    }
+
+    async void BallPawn()
+    {
+        for (int i = 0; i < _mazeController.ActiveBalls; i++)
         {
             GameObject ball = Instantiate(ballPrefab, transform);
             await Task.Delay(50);

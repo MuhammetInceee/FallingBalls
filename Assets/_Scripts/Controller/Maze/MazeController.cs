@@ -27,12 +27,14 @@ namespace FallingBalls.Controllers
         {
             _rb = GetComponent<Rigidbody>();
             _swerveInputSystem = GetComponent<SwerveInputSystem>();
+            _mazeController.canPlay = true;
         }
 
         private void Update()
         {
+            if(!_mazeController.canPlay) return;
+            
             _deltaRotation = Quaternion.Euler(Vector3.forward * (_mazeController.RotateSpeed * Mathf.Clamp(_swerveInputSystem.MoveFactorX, -9f,9f)));
-
             _rb.MoveRotation(_rb.rotation * _deltaRotation);
         }
     }
