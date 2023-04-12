@@ -7,8 +7,6 @@ namespace FallingBalls.Managers
 {
     public class BallManager : MonoBehaviour
     {
-        [SerializeField] private float maxSpeed = 10f;
-        private Rigidbody _rb;
         private Renderer _renderer;
 
         void Awake()
@@ -20,7 +18,6 @@ namespace FallingBalls.Managers
 
         private void GetReferences()
         {
-            _rb = GetComponent<Rigidbody>();
             _renderer = GetComponent<Renderer>();
         }
 
