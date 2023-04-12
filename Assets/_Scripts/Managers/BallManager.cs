@@ -18,15 +18,6 @@ namespace FallingBalls.Managers
             CreateAnim();
         }
 
-
-        void FixedUpdate()
-        {
-            if (_rb.velocity.magnitude > maxSpeed)
-            {
-                _rb.velocity = _rb.velocity.normalized * maxSpeed;
-            }
-        }
-
         private void GetReferences()
         {
             _rb = GetComponent<Rigidbody>();
